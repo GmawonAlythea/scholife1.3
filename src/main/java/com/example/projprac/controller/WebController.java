@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class WebController {
 
-    @GetMapping({"/", "/index", "/home"})
+    @GetMapping("/register")
+    public String register() {
+        return "/register.html";
+    }
+
+    @GetMapping({ "/index", "/home"})
     public String index() {
         return "/index.html"; // place index.html in static/
     }
@@ -45,17 +50,6 @@ public class WebController {
     @GetMapping("/reportandfeedback")
     public String reportAndFeedback() {
         return "/reportandfeedback.html";
-    }
-
-    // If you have auth pages:
-    @GetMapping("/login")
-    public String login() {
-        return "/login.html";
-    }
-
-    @GetMapping("/register")
-    public String register() {
-        return "/register.html";
     }
 
 }

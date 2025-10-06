@@ -17,6 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const backBttn = document.getElementById('backBttn');
+    if (backBttn) {
+        backBttn.addEventListener('click', () => {
+            window.location.href = 'index';
+        });
+    }
+
+    const signUp = document.getElementById('signUp');
+    if (signUp) {
+        backBttn.addEventListener('click', () => {
+            window.location.href = 'index';
+        });
+    }
+
     const rsvpButton = document.querySelector('.announcement-action-btn');
     if (rsvpButton) {
         rsvpButton.addEventListener('click', () => {

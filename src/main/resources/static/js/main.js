@@ -254,6 +254,3 @@ function initializeEventListeners() {
         });
     });
 }
-
-// Console welcome message
-console.log('🎓 Scholife Dashboard loaded successfully!');
