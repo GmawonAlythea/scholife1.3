@@ -1,0 +1,112 @@
+:root {
+    --card-bg: #2C2F33;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B3B8;
+    --editor-bg: #4A90E2;
+    --dev-bg: #E94B3C;
+    --designer-bg: #F5A623;
+}
+
+.organization-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding-top: 24px;
+}
+
+.organization-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.organization-card:hover {
+    transform: translateY(-8px);
+}
+
+.card-image-container {
+    background-color: var(--editor-bg);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dev-bg { background-color: var(--dev-bg); }
+.designer-bg { background-color: var(--designer-bg); }
+
+.card-image {
+    width: 80px;
+    height: 80px;
+}
+
+.card-tag {
+    display: inline-block;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.editor-tag { background-color: var(--editor-bg); color: white; }
+.dev-tag { background-color: var(--dev-bg); color: white; }
+.designer-tag { background-color: var(--designer-bg); color: white; }
+
+.card-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.card-location {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 4px 0 24px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid var(--text-secondary);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+}
+
+.action-btn:hover {
+    background-color: var(--text-secondary);
+    color: var(--card-bg);
+}
+
+.back-button {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-bottom: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-button:hover {
+    background-color: #1976D2;
+}
