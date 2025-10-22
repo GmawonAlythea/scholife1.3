@@ -3,53 +3,61 @@ package com.example.projprac.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-/**
- * Simple controller that forwards known routes to static HTML files placed in
- * src/main/resources/static/*.html
- *
- * Example: GET /announcement -> forwards to /announcement.html
- */
 @Controller
 public class WebController {
 
     @GetMapping("/register")
     public String register() {
-        return "/register.html";
+        return "register";
     }
 
-    @GetMapping({ "/index", "/home"})
+    @GetMapping( "/home")
+    public String home() {
+        return "home"; // place index.html in static/
+    }
+
+    @GetMapping( "/index")
     public String index() {
-        return "/index.html"; // place index.html in static/
+        return "index"; // place index.html in static/
     }
 
     @GetMapping("/announcement")
     public String announcement() {
-        return "/announcement.html";
+        return "announcement";
     }
 
     @GetMapping("/organization")
     public String organization() {
-        return "/organization.html";
+        return "organization";
+    }
+
+    @GetMapping("/events")
+    public String events() {
+        return "events";
     }
 
     @GetMapping("/lostandfound")
     public String lostAndFound() {
-        return "/lostandfound.html";
+        return "lostandfound";
     }
 
     @GetMapping("/points")
     public String points() {
-        return "/points.html";
+        return "points";
     }
 
     @GetMapping("/leaderboard")
     public String leaderboard() {
-        return "/leaderboard.html";
+        return "leaderboard";
     }
 
     @GetMapping("/reportandfeedback")
     public String reportAndFeedback() {
-        return "/reportandfeedback.html";
+        return "reportandfeedback";
     }
 
+    @GetMapping("/registerad")
+    public String registerad() {
+        return "registerad";
+    }
 }

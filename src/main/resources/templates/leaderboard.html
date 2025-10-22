@@ -51,17 +51,13 @@
     </header>
 
     <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
+    <aside class="sidebar collapsed" id="sidebar">
         <div class="sidebar-header">
             <div class="user-profile">
-                <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
-                        alt="User Avatar"
-                        class="user-avatar"
-                />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="User Avatar" class="user-avatar">
                 <div class="user-info">
                     <div class="user-name-container">
-                        <h3 class="user-name">Markarn Doe</h3>
+                        <h3 class="user-name" id="userName"></h3>
                         <button class="user-dropdown">
                             <i class="fas fa-chevron-down"></i>
                         </button>
@@ -75,17 +71,27 @@
                 <h4 class="nav-section-title">PERSONAL</h4>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="announcement" class="nav-link">
-                            <i class="fas fa-bullhorn"></i>
-                            <span>Announcement</span>
-                            <i class="fas fa-chevron-left nav-arrow"></i>
+                        <a href="/home" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="organization" class="nav-link">
+                        <a href="/announcement" class="nav-link">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Announcement</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/organization" class="nav-link">
                             <i class="fas fa-building"></i>
                             <span>Organization</span>
-                            <i class="fas fa-chevron-left nav-arrow"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/events" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Events</span>
                         </a>
                     </li>
                 </ul>
@@ -95,25 +101,31 @@
                 <h4 class="nav-section-title">APPS</h4>
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="lostandfound" class="nav-link">
+                        <a href="game.html" class="nav-link">
+                            <i class="fas fa-gamepad"></i>
+                            <span>Game</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/lostandfound" class="nav-link">
                             <i class="fas fa-search"></i>
                             <span>Lost and Found</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="points" class="nav-link">
+                        <a href="/points" class="nav-link">
                             <i class="fas fa-star"></i>
                             <span>Points</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="leaderboard" class="nav-link">
+                        <a href="/leaderboard" class="nav-link">
                             <i class="fas fa-trophy"></i>
                             <span>Leaderboard</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="reportandfeedback" class="nav-link">
+                        <a href="/reportandfeedback" class="nav-link">
                             <i class="fas fa-chart-bar"></i>
                             <span>Report & Feedback</span>
                         </a>
@@ -128,7 +140,7 @@
         <div class="breadcrumb">
             <h2>Leaderboard</h2>
             <nav class="breadcrumb-nav">
-                <a href="index">Home</a>
+                <a href="home.html">Home</a>
                 <span class="breadcrumb-separator">></span>
                 <span>Leaderboard</span>
             </nav>
@@ -216,5 +228,13 @@
 
 <script type="module" src="../js/main.js"></script>
 <script type="module" src="../js/leaderboard.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const userName = localStorage.getItem('userName');
+        if (userName) {
+            document.getElementById('userName').textContent = userName;
+        }
+    });
+</script>
 </body>
 </html>

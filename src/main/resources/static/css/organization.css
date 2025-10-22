@@ -110,3 +110,27 @@
 .back-button:hover {
     background-color: #1976D2;
 }
+
+.floating-box {
+    display: none;
+    position: absolute;
+    background-color: #33373a;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.floating-box a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+
+#organization-nav .floating-box {
+    display: none;
+}
+
+#organization-nav.active .floating-box {
+    display: block;
+}

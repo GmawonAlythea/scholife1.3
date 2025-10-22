@@ -1,25 +1,16 @@
 
 :root {
-    --primary-blue: #2196F3;
-    --secondary-blue: #1976D2;
-    --light-blue: #E3F2FD;
-    --cyan: #00BCD4;
-    --purple: #9C27B0;
-    --teal: #009688;
+    --maroon: #800000;
+    --yellow: #FFFF00;
+    --black: #000000;
     --white: #FFFFFF;
-    --gray-100: #F5F5F5;
-    --gray-200: #EEEEEE;
-    --gray-300: #E0E0E0;
-    --gray-400: #BDBDBD;
-    --gray-500: #9E9E9E;
-    --gray-600: #757575;
-    --gray-700: #424242;
-    --gray-800: #212121;
-    --text-primary: #212121;
-    --text-secondary: #757575;
+    --light-gray: #f2f2f2;
+    --dark-gray: #a9a9a9;
+
     --sidebar-width: 240px;
     --sidebar-width-collapsed: 88px;
     --header-height: 64px;
+    --headlines-width: 300px;
 }
 
 * {
@@ -30,31 +21,43 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--gray-100);
-    color: var(--text-primary);
+    background-color: var(--light-gray);
+    color: var(--black);
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 #app {
-    min-height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-columns: var(--sidebar-width) 1fr;
     grid-template-rows: var(--header-height) 1fr;
     grid-template-areas:
-    "sidebar header"
-    "sidebar main";
+        "sidebar header"
+        "sidebar main";
     transition: grid-template-columns 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
 }
+
+#app.three-column {
+    grid-template-columns: var(--sidebar-width) 1fr var(--headlines-width);
+    grid-template-areas:
+        "sidebar header header"
+        "sidebar main headlines";
+}
+
 
 #app.sidebar-collapsed {
     grid-template-columns: var(--sidebar-width-collapsed) 1fr;
 }
 
+#app.three-column.sidebar-collapsed {
+    grid-template-columns: var(--sidebar-width-collapsed) 1fr var(--headlines-width);
+}
+
 /* Header Styles */
 .header {
     grid-area: header;
-    background-color: var(--primary-blue);
+    background-color: var(--maroon);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,7 +75,7 @@ body {
 .hamburger-btn {
     background: none;
     border: none;
-    color: white;
+    color: var(--white);
     font-size: 18px;
     cursor: pointer;
     padding: 8px;
@@ -88,7 +91,7 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: white;
+    color: var(--white);
     font-size: 24px;
     font-weight: bold;
     white-space: nowrap;
@@ -113,7 +116,7 @@ body {
 .header-icon {
     background: none;
     border: none;
-    color: white;
+    color: var(--white);
     font-size: 16px;
     cursor: pointer;
     padding: 8px;
@@ -137,13 +140,13 @@ body {
 /* Sidebar Styles */
 .sidebar {
     grid-area: sidebar;
-    background: linear-gradient(180deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-    color: white;
+    background: linear-gradient(180deg, var(--maroon) 0%, var(--black) 100%);
+    color: var(--white);
     display: flex;
     flex-direction: column;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
     z-index: 999;
-    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .sidebar-header {
@@ -192,7 +195,7 @@ body {
 .user-dropdown {
     background: none;
     border: none;
-    color: white;
+    color: var(--white);
     cursor: pointer;
 }
 
@@ -241,7 +244,7 @@ body {
 
 .nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: var(--white);
 }
 
 .nav-link i:first-child {
@@ -283,7 +286,7 @@ body {
 
 .sidebar-footer-btn:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: white;
+    color: var(--white);
 }
 
 /* --- Collapsed State --- */
@@ -332,7 +335,7 @@ body {
 .breadcrumb h2 {
     font-size: 24px;
     font-weight: 600;
-    color: var(--gray-800);
+    color: var(--black);
 }
 
 .breadcrumb-nav {
@@ -341,7 +344,7 @@ body {
 }
 
 .breadcrumb-nav a {
-    color: var(--primary-blue);
+    color: var(--maroon);
     text-decoration: none;
 }
 
@@ -364,13 +367,11 @@ body {
 }
 
 .stat-card {
-    background: white;
+    background: var(--white);
     padding: 24px;
     border-radius: 12px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 }
-
-/* ... (rest of the styles are unchanged) ... */
 
 .stat-card::before {
     content: '';
@@ -379,7 +380,7 @@ body {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-blue), var(--cyan));
+    background: linear-gradient(90deg, var(--yellow), var(--maroon));
 }
 
 .stat-card h3 {
@@ -393,7 +394,7 @@ body {
 .stat-value {
     font-size: 28px;
     font-weight: 700;
-    color: var(--primary-blue);
+    color: var(--maroon);
     margin-bottom: 16px;
 }
 
@@ -408,7 +409,7 @@ body {
 }
 
 .chart-card {
-    background: white;
+    background: var(--white);
     border-radius: 12px;
     padding: 24px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
@@ -436,7 +437,6 @@ body {
         left: 0;
     }
 
-    /* When sidebar is collapsed on mobile, it should be hidden */
     .sidebar.collapsed {
         left: -240px;
     }

@@ -3,6 +3,7 @@
     --secondary-blue: #1976D2;
     --white: #FFFFFF;
     --gray-100: #F5F5F5;
+    --gray-200: #EEEEEE;
     --gray-700: #424242;
     --text-primary: #212121;
     --text-secondary: #757575;
@@ -34,51 +35,312 @@
     background-color: var(--secondary-blue);
 }
 
-.announcement-card {
+.announcement-main {
+    flex: 3;
+}
+
+.create-post-container {
     background: var(--white);
     border-radius: 12px;
-    padding: 24px;
+    padding: 16px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     margin-bottom: 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.announcement-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+.create-post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gray-200);
 }
 
-.announcement-header h3 {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0 0 8px 0;
+.user-avatar-small {
+    border-radius: 50%;
 }
 
-.announcement-meta {
-    font-size: 14px;
+.create-post-header textarea {
+    flex: 1;
+    border: none;
+    background: var(--gray-100);
+    border-radius: 20px;
+    padding: 10px 16px;
+    font-size: 16px;
+    resize: none;
+    height: 40px;
+    transition: height 0.2s;
+}
+
+.create-post-header textarea:focus {
+    height: 100px;
+}
+
+.create-post-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.create-post-actions button {
+    background: none;
+    border: none;
     color: var(--text-secondary);
-    margin-bottom: 16px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.announcement-body p {
-    line-height: 1.6;
-    margin-bottom: 16px;
+.create-post-actions button:hover {
+    background-color: var(--gray-100);
 }
 
-.announcement-footer {
-    margin-top: 16px;
-}
-
-.announcement-action-btn {
+#createPostBtn {
     background-color: var(--primary-blue);
     color: var(--white);
+}
+
+#createPostBtn:hover {
+    background-color: var(--secondary-blue);
+}
+
+.create-post-actions .fa-image { color: #4CAF50; }
+.create-post-actions .fa-smile { color: #FFC107; }
+
+.posts-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: calc(100vh - 350px); /* Adjust based on your layout */
+    overflow-y: auto;
+}
+
+.post-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.post-user-info h4 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.post-user-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.post-body {
+    margin-bottom: 12px;
+}
+
+.post-actions {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--gray-200);
+    padding-top: 12px;
+}
+
+.post-actions button {
+    background: none;
     border: none;
-    padding: 10px 20px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 8px 12px;
     border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.post-actions button:hover {
+    background-color: var(--gray-100);
+}
+
+.post-actions .upvote-btn.active i,
+.post-actions .upvote-btn.active span {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.post-actions .downvote-btn.active i,
+.post-actions .downvote-btn.active span {
+    color: #F44336;
+    font-weight: bold;
+}
+
+.comment-section {
+    padding-top: 16px;
+    margin-top: 16px;
+    border-top: 1px solid var(--gray-200);
+}
+
+.comment-input-container {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.comment-input {
+    flex: 1;
+    background-color: var(--gray-100);
+    border-radius: 18px;
+    padding: 8px 12px;
+}
+
+.comment-input textarea {
+    width: 100%;
+    border: none;
+    background: transparent;
+    resize: none;
+    font-size: 14px;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.comment-input-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+}
+
+.comment-input-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 16px;
+    padding: 4px;
+}
+
+.comment-input-actions .send-comment-btn {
+    color: var(--primary-blue);
+    font-size: 18px;
+}
+
+.comments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.comment {
+    display: flex;
+    gap: 12px;
+}
+
+.comment-content {
+    background-color: var(--gray-100);
+    border-radius: 18px;
+    padding: 8px 12px;
+    flex: 1;
+}
+
+.comment-author {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.comment-text {
+    font-size: 14px;
+}
+
+.comment-actions {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    padding-left: 52px; /* Align with comment content */
+}
+
+.comment-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.replies {
+    padding-left: 52px; /* Indent replies */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hot-topics-container {
+    grid-area: headlines;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    overflow: hidden;
+}
+
+.hot-topics-container h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.hot-topics-list-wrapper {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+#hotTopicsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    animation: slide-up 30s linear infinite;
+}
+
+#hotTopicsList li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s;
 }
 
-.announcement-action-btn:hover {
-    background-color: var(--secondary-blue);
+#hotTopicsList li:hover {
+    background-color: var(--gray-100);
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
 }
